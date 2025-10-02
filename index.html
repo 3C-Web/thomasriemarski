@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Thomas Riemarski – Car Competence Center</title>
+  <style>
+    :root{
+      --bg:#ffffff;
+      --fg:#1f2328;
+      --muted:#6b7280;
+      --btn:#ffffff;
+      --btn-border:#e5e7eb;
+      --btn-hover:#f8fafc;
+      --accent:#2563eb;
+      --shadow:0 8px 24px rgba(0,0,0,.06);
+      --radius:16px;
+      --anthrazit:#2F2F2F; /* header color */
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+      background:var(--bg); color:var(--fg); font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    }
+    .card{ width:min(92vw,520px); padding:24px; text-align:center }
+    .logo{ width:160px; height:auto; margin:0 auto 18px; display:block }
+
+    h1{ margin:0; font-size:1.8rem; font-weight:800; color:var(--anthrazit) }
+    .role{ margin:2px 0 8px; font-size:1rem; font-weight:600; color:#374151 }  /* smaller + closer */
+    .company{ margin:0 0 18px; font-size:1.05rem; color:var(--muted); font-weight:600 }
+
+    .grid{ display:grid; gap:12px; margin-top:8px }
+    .btn{
+      display:flex; align-items:center; gap:12px;
+      padding:14px 16px; border-radius:var(--radius);
+      background:var(--btn); border:1px solid var(--btn-border);
+      text-decoration:none; color:var(--fg); box-shadow:var(--shadow);
+      transition:background .15s ease, transform .04s ease;
+    }
+    .btn:hover{ background:var(--btn-hover) }
+    .btn:active{ transform:translateY(1px) }
+    .ico{ width:22px; height:22px; display:grid; place-items:center }
+    .txt{ font-size:1.02rem; font-weight:600 }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <img src="logo.png" alt="Logo Car Competence Center" class="logo" />
+    <h1>Thomas Riemarski</h1>
+    <div class="role">Finance &amp; Controlling</div>
+    <div class="company">Car Competence Center</div>
+
+    <div class="grid">
+      <a class="btn" href="tel:++491733295536"><span class="ico">📞</span><span class="txt">0173 3295 536</span></a>
+      <a class="btn" href="mailto:t.riemarski@3c-ulm.de"><span class="ico">✉️</span><span class="txt">t.riemarski@3c-ulm.de</span></a>
+      <a class="btn" href="https://3c-ulm.de/" target="_blank" rel="noopener"><span class="ico">🌐</span><span class="txt">https://3c-ulm.de/</span></a>
+      <a class="btn" href="https://maps.google.com/?q=Graf-Arco-Stra%C3%9Fe%204%2C%2089079%20Ulm%20Donautal" target="_blank" rel="noopener">
+        <span class="ico">📍</span><span class="txt">Graf-Arco-Straße 4, 89079 Ulm Donautal</span>
+      </a>
+    </div>
+  </main>
+</body>
+</html>

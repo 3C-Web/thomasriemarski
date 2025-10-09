@@ -62,7 +62,7 @@
     }
 
     .role {
-      margin:-6px 0 50px; /* same spacing as logo → name */
+      margin:-6px 0 50px; /* equal to logo→name spacing */
       font-size:1.05rem;
       font-weight:500;
       color:#374151;
@@ -77,7 +77,7 @@
     .btn {
       display:flex;
       align-items:center;
-      justify-content:center;
+      justify-content:flex-start; /* ✅ left alignment */
       gap:12px;
       padding:16px 18px;
       border-radius:var(--radius);
@@ -88,6 +88,7 @@
       box-shadow:var(--shadow);
       transition:background .15s ease, transform .04s ease, border-color .15s ease;
       font-weight:500;
+      text-align:left; /* ✅ text flush-left */
     }
 
     .btn:hover {

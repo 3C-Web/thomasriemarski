@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Thomas Riemarski – Car Competence Center</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- ✅ Google Fonts: Outfit -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -18,6 +19,7 @@
       --radius:16px;
       --anthrazit:#2F2F2F;
       --icon:#4b9a89;
+      --line:#d4d4d4;
     }
 
     *{box-sizing:border-box}
@@ -26,8 +28,9 @@
       margin:0;
       min-height:100vh;
       display:flex;
-      align-items:center;
+      align-items:flex-start; /* ✅ moved content higher */
       justify-content:center;
+      padding-top:50px; /* ✅ same top margin as Andrej */
       background:var(--bg);
       color:var(--fg);
       font-family:"Urbanist", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
@@ -46,37 +49,42 @@
     .logo {
       width:250px;
       height:auto;
-      margin:0 auto 50px;
+      margin:0 auto 20px; /* ✅ same spacing as Andrej */
       display:block;
     }
 
     h1 {
-      margin:-25px 0 0;
+      margin:20px 0 0;
       font-size:1.9rem;
       color:var(--anthrazit);
       letter-spacing:.2px;
       font-weight:400;
     }
 
-    h1 span:first-child {
-      font-weight:500; /* Thomas - lighter */
-    }
-
-    h1 span:last-child {
-      font-weight:700; /* Riemarski - bold */
-    }
+    h1 span:first-child { font-weight:500; }
+    h1 span:last-child { font-weight:700; }
 
     .role {
-      margin:-6px 0 50px;
+      margin:-5px 0 30px; /* ✅ same spacing as Andrej */
       font-size:1.05rem;
       font-weight:500;
       color:#374151;
     }
 
+    .subrole {
+      margin:0 0 40px; /* ✅ same gap before buttons */
+      font-size:0.78rem;
+      font-weight:500;
+      color:#4b5563;
+      line-height:1.25;
+      letter-spacing:-0.2px;
+      white-space:nowrap;
+    }
+
     .grid {
       display:grid;
-      gap:14px;
-      margin-top:0;
+      gap:12px;
+      margin-top:8px;
     }
 
     .btn {
@@ -84,7 +92,7 @@
       align-items:center;
       justify-content:flex-start;
       gap:12px;
-      padding:16px 18px;
+      padding:14px 16px;
       border-radius:var(--radius);
       background:var(--btn);
       border:1px solid var(--btn-border);
@@ -123,6 +131,25 @@
       font-weight:600;
       font-variant-numeric:tabular-nums;
     }
+
+    /* ✅ ISO badge styling */
+    .iso-badge {
+      margin-top:36px;
+      display:flex;
+      justify-content:center;
+      margin-bottom:20px;
+    }
+
+    .iso-badge img {
+      width:130px;   /* ✅ same large badge */
+      height:auto;
+      opacity:0.98;
+    }
+
+    @media (max-width:380px) {
+      .subrole { font-size:0.75rem; }
+      .iso-badge img { width:110px; }
+    }
   </style>
 </head>
 <body>
@@ -131,6 +158,7 @@
 
     <h1><span>Thomas</span> <span>Riemarski</span></h1>
     <div class="role">Finance & Controlling</div>
+    <div class="subrole"></div>
 
     <div class="grid">
       <!-- Phone -->
@@ -166,6 +194,11 @@
         </span>
         <span class="txt">3c-ulm.de</span>
       </a>
+    </div>
+
+    <!-- ✅ ISO Certificate -->
+    <div class="iso-badge">
+      <img src="iso.png" alt="ISO 9001 Zertifikat">
     </div>
   </main>
 </body>

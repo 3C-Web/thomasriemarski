@@ -20,6 +20,8 @@
       --anthrazit:#2F2F2F;
       --icon:#4b9a89;
       --line:#d4d4d4;
+      --primary:#3F9784;       /* 3C green for filled button */
+      --primary-hover:#3A8D7B;
     }
 
     *{box-sizing:border-box}
@@ -99,13 +101,23 @@
       text-decoration:none;
       color:var(--fg);
       box-shadow:var(--shadow);
-      transition:background .15s ease, transform .04s ease, border-color .15s ease;
+      transition:background .15s ease, transform .04s ease, border-color .15s ease, filter .15s ease;
       font-weight:500;
       text-align:left;
+      cursor:pointer;
     }
 
     .btn:hover { background:var(--btn-hover); border-color:#dfe3e8; }
     .btn:active { transform:translateY(1px); }
+
+    /* ✅ Filled button variant (like others) */
+    .btn--primary{
+      background:var(--primary);
+      border-color:var(--primary);
+      color:#ffffff;
+    }
+    .btn--primary:hover{ background:var(--primary-hover); filter:saturate(1.05); }
+    .btn--primary .ico{ color:#ffffff; }
 
     .ico {
       width:22px;
@@ -157,7 +169,7 @@
     <img src="logo.png" alt="Logo Car Competence Center" class="logo" />
 
     <h1><span>Thomas</span> <span>Riemarski</span></h1>
-    <div class="role">Finance & Controlling</div>
+    <div class="role">Finance &amp; Controlling</div>
     <div class="subrole"></div>
 
     <div class="grid">
@@ -194,6 +206,20 @@
         </span>
         <span class="txt">3c-ulm.de</span>
       </a>
+
+      <!-- ✅ Add Contact (filled green) -->
+      <button class="btn btn--primary" type="button" onclick="downloadVCF()" aria-label="Kontakt speichern">
+        <span class="ico" aria-hidden="true">
+          <!-- contact-card icon -->
+          <svg viewBox="0 0 24 24" role="img" aria-label="Kontakt speichern">
+            <rect x="3" y="5" width="18" height="14" rx="2" ry="2"></rect>
+            <path d="M7 10h5"></path>
+            <path d="M7 14h8"></path>
+            <circle cx="16.5" cy="9" r="1.5"></circle>
+          </svg>
+        </span>
+        <span class="txt" style="color:#fff;">Kontakt speichern</span>
+      </button>
     </div>
 
     <!-- ✅ ISO Certificate (non-clickable) -->
@@ -202,5 +228,33 @@
     </div>
 
   </main>
+
+  <script>
+    // Builds and downloads a UTF-8 vCard (v3.0) for maximum compatibility.
+    function downloadVCF(){
+      const vcard =
+        "BEGIN:VCARD\r\n" +
+        "VERSION:3.0\r\n" +
+        "N:Riemarski;Thomas;;;\r\n" +
+        "FN:Thomas Riemarski\r\n" +
+        "ORG:Car Competence Center Ulm\r\n" +
+        "TITLE:Finance & Controlling\r\n" +
+        "EMAIL;TYPE=INTERNET;TYPE=WORK:t.riemarski@3c-ulm.de\r\n" +
+        "TEL;TYPE=CELL;TYPE=WORK:+49 173 329 5536\r\n" +
+        "URL:https://3c-ulm.de/\r\n" +
+        "NOTE:Finance & Controlling\r\n" +
+        "END:VCARD\r\n";
+
+      const blob = new Blob([vcard], { type: "text/vcard;charset=utf-8" });
+      const url  = URL.createObjectURL(blob);
+      const a    = document.createElement("a");
+      a.href = url;
+      a.download = "Thomas-Riemarski.vcf";
+      document.body.appendChild(a);
+      a.click();
+      URL.revokeObjectURL(url);
+      a.remove();
+    }
+  </script>
 </body>
 </html>
